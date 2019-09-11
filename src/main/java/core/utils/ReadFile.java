@@ -12,6 +12,8 @@
 
 package core.utils;
 
+import core.Log;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -36,6 +38,7 @@ public class ReadFile {
         try (InputStream input = new FileInputStream("gradle.properties")) {
             properties.load(input);
         } catch (FileNotFoundException ex) {
+            Log.getInstance().getLogger().error("This file not exist!!!" + ex);
             throw new NullPointerException("This file not exist!!!");
         } catch (IOException e) {
             e.printStackTrace();
