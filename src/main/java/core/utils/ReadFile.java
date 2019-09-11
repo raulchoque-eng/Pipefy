@@ -1,3 +1,15 @@
+/*
+ * Copyright (c) 2019 Jala Foundation.
+ * 2643 Av. Melchor Perez de Olguin, Colquiri Sud, Cochabamba, Bolivia.
+ * All rights reserved.
+ *
+ * This software is the confidential and proprietary information of
+ * Jala Foundation, ("Confidential Information"). You shall not
+ * disclose such Confidential Information and shall use it only in
+ * accordance with the terms of the license agreement you entered into
+ * with Jala Foundation.
+ */
+
 package core.utils;
 
 import java.io.FileInputStream;
@@ -20,14 +32,14 @@ public class ReadFile {
      * @return a Properties object.
      */
     public static Properties getInstance() {
-        Properties prop = new Properties();
+        Properties properties = new Properties();
         try (InputStream input = new FileInputStream("gradle.properties")) {
-            prop.load(input);
+            properties.load(input);
         } catch (FileNotFoundException ex) {
             throw new NullPointerException("This file not exist!!!");
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return prop;
+        return properties;
     }
 }

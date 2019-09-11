@@ -1,40 +1,28 @@
-package core.selenium.webdrivers;
+/*
+ * Copyright (c) 2019 Jala Foundation.
+ * 2643 Av. Melchor Perez de Olguin, Colquiri Sud, Cochabamba, Bolivia.
+ * All rights reserved.
+ *
+ * This software is the confidential and proprietary information of
+ * Jala Foundation, ("Confidential Information"). You shall not
+ * disclose such Confidential Information and shall use it only in
+ * accordance with the terms of the license agreement you entered into
+ * with Jala Foundation.
+ */
 
+package core.selenium.webdrivers;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 /**
- * Chrome class, creates a single instance of Chrome class
+ * Chrome class, creates instances of Chrome class.
  * for use the Chrome navigator.
  *
  * @author Raul Choque
  * @version 0.0.1
  */
 public final class Chrome implements Browser {
-
-    private static Chrome chrome;
-    private WebDriver driver;
-
-    /**
-     * Constructor of Chrome class.
-     */
-    private Chrome() {
-        System.setProperty("webdriver.chrome.driver", PathWebDriver.PATH_CHROME_DRIVER.getPathDriver());
-        this.driver = new ChromeDriver();
-    }
-
-    /**
-     * Gets single instance of Chrome class.
-     *
-     * @return a Chrome object.
-     */
-    public static Chrome getInstance() {
-        if (chrome == null) {
-            chrome = new Chrome();
-        }
-        return chrome;
-    }
 
     /**
      * Gets a WebDriver object for use Chrome browser.
@@ -43,6 +31,7 @@ public final class Chrome implements Browser {
      */
     @Override
     public WebDriver getDriver() {
-        return driver;
+        System.setProperty("webdriver.chrome.driver", PathWebDriver.PATH_CHROME_DRIVER.getPathDriver());
+        return new ChromeDriver();
     }
 }

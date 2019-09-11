@@ -1,3 +1,15 @@
+/*
+ * Copyright (c) 2019 Jala Foundation.
+ * 2643 Av. Melchor Perez de Olguin, Colquiri Sud, Cochabamba, Bolivia.
+ * All rights reserved.
+ *
+ * This software is the confidential and proprietary information of
+ * Jala Foundation, ("Confidential Information"). You shall not
+ * disclose such Confidential Information and shall use it only in
+ * accordance with the terms of the license agreement you entered into
+ * with Jala Foundation.
+ */
+
 package core.selenium.webdrivers;
 
 import core.StrategyToCreate;
@@ -21,7 +33,6 @@ public class FactoryBrowser {
     public static Browser getBrowser(final String nameBrowser) {
         final HashMap<String, StrategyToCreate> strategyMap = composeStrategyMap();
         return strategyMap.get(nameBrowser).executeMethod();
-
     }
 
     /**
@@ -31,8 +42,8 @@ public class FactoryBrowser {
      */
     private static HashMap<String, StrategyToCreate> composeStrategyMap() {
         HashMap<String, StrategyToCreate> mapWithBrowser = new HashMap<>();
-        mapWithBrowser.put("chrome", () -> Chrome.getInstance());
-        mapWithBrowser.put("firefox", () -> Firefox.getInstance());
+        mapWithBrowser.put("chrome", () -> new Chrome());
+        mapWithBrowser.put("firefox", () -> new Firefox());
         return mapWithBrowser;
     }
 }
