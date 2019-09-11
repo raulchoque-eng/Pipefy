@@ -46,3 +46,7 @@ hs_err_pid*
 
 #Log4J
 /log/*
+
+# ignore this folder, except java files
+src/main/java/core/selenium/webdrivers/driver
+config/
