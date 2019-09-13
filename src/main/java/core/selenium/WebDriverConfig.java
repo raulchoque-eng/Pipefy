@@ -12,7 +12,7 @@
 
 package core.selenium;
 
-import core.utils.ReadFile;
+import core.selenium.utils.ReadPropertyFile;
 
 /**
  * WebDriverConfig class, read the data to use in our project.
@@ -32,11 +32,11 @@ public final class WebDriverConfig {
      * Constructor of WebDriverConfig class.
      */
     private WebDriverConfig() {
-        nameBrowser = ReadFile.getInstance().
+        nameBrowser = ReadPropertyFile.getInstance().
                 getProperty(ProjectProperties.BROWSER_NAME.getValue());
-        implicitWait = Integer.parseInt(ReadFile.getInstance().
+        implicitWait = Integer.parseInt(ReadPropertyFile.getInstance().
                 getProperty(ProjectProperties.IMPLICIT_WAIT.getValue()));
-        explicitWait = Integer.parseInt(ReadFile.getInstance().
+        explicitWait = Integer.parseInt(ReadPropertyFile.getInstance().
                 getProperty(ProjectProperties.EXPLICIT_WAIT.getValue()));
     }
 

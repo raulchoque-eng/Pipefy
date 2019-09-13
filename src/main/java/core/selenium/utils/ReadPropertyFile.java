@@ -10,7 +10,7 @@
  * with Jala Foundation.
  */
 
-package core.utils;
+package core.selenium.utils;
 
 import core.Log;
 
@@ -21,12 +21,12 @@ import java.io.InputStream;
 import java.util.Properties;
 
 /**
- * ReadFile class, reads data from properties file.
+ * ReadPropertyFile class, reads data from properties file.
  *
  * @author Raul Choque
  * @version 0.0.1
  */
-public class ReadFile {
+public class ReadPropertyFile {
 
     /**
      * Gets Properties class with data.
