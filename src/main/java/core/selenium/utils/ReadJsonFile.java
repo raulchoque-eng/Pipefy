@@ -37,7 +37,6 @@ public final class ReadJsonFile {
      * @throws NullPointerException
      */
     private ReadJsonFile() {
-
         try {
             JsonParser parser = new JsonParser();
             JsonElement jsonElement = parser.parse(new FileReader("./user.json"));
@@ -89,7 +88,6 @@ public final class ReadJsonFile {
 
         for (Object object: account) {
             JsonObject dataAccount = (JsonObject) object;
-
             if (dataAccount.has(userType)) {
                 user = dataAccount.get(userType).getAsJsonObject();
                 break;

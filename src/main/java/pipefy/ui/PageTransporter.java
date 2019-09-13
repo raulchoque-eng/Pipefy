@@ -12,12 +12,9 @@
 
 package pipefy.ui;
 
-import core.selenium.ProjectProperties;
 import core.selenium.WebDriverManager;
 import core.selenium.utils.ReadPropertyFile;
 import org.openqa.selenium.WebDriver;
-import pipefy.ui.pages.HomePage;
-import pipefy.ui.pages.LoginPage;
 
 /**
  * PageTransporter class.
@@ -27,59 +24,19 @@ import pipefy.ui.pages.LoginPage;
  */
 public final class PageTransporter {
 
-    private static PageTransporter pageTransporter;
-    private WebDriver driver;
-
-    /**
-     * Constructor of PageTransporter class.
-     */
-    private PageTransporter() {
-        driver = WebDriverManager.getInstance().getDriver();
-    }
-
-    /**
-     * Gets single instance of PageTransporter class.
-     *
-     * @return a PageTransporter object.
-     */
-    public static PageTransporter getInstance() {
-        if (pageTransporter == null) {
-            pageTransporter = new PageTransporter();
-        }
-        return pageTransporter;
-    }
-
-    /**
-     * Navigates to login page use the URL.
-     *
-     * @return a LoginPage object.
-     */
-    public LoginPage navigateLoginPage() {
-        navigateURL(ProjectProperties.URL_LOGIN.getValue());
-        return new LoginPage();
-    }
-
     /**
      * Navigates using the URL location.
      *
-     * @param url is address to navigate.
+     * @param namePage is address to navigate.
      */
-    private void navigateURL(final String url) {
+    public static void navigateURL(final String namePage) {
         try {
-            driver.get(ReadPropertyFile.getInstance().getProperty(url));
+            String url = ReadPropertyFile.getInstance().getProperty(namePage);
+            WebDriver driver = WebDriverManager.getInstance().getDriver();
+            driver.navigate().to(url);
         } catch (NullPointerException ex) {
             ex.printStackTrace();
             throw new NullPointerException("This url is not valid :" + ex.getMessage());
         }
-    }
-
-    /**
-     * Navigates to Homepage page use the URL.
-     *
-     * @return a HomePage object.
-     */
-    public HomePage navigateHomePage() {
-        navigateURL(ProjectProperties.URL_HOMEPAGE.getValue());
-        return new HomePage();
     }
 }

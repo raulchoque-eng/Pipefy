@@ -25,7 +25,7 @@ import org.testng.annotations.AfterTest;
  * @version 0.0.1
  */
 @CucumberOptions(features = "src/test/resources/features",
-        glue = {"pipefy/steps_implementation", "pipefy/hooks"},
+        glue = {"pipefy/steps_implementation", "pipefy/hook"},
         plugin = {"pretty", "html:target/cucumber", "json:target/cucumber.json"})
 public class RunCucumberTest extends AbstractTestNGCucumberTests {
 

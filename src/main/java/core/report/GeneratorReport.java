@@ -46,9 +46,7 @@ public class GeneratorReport {
         final File reportOutputDirectory = new File("target");
         final List<String> jsonFiles = new ArrayList<>();
         jsonFiles.add("target/cucumber.json");
-
         final String projectName = "Pipefy";
-
         final Configuration configuration = new Configuration(reportOutputDirectory, projectName);
         // additional metadata presented on main page
         configuration.addClassifications("Platform", "macOS");

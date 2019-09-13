@@ -31,6 +31,9 @@ public class HomePage extends BasePage {
     @FindBy(css = ".pp-repo-name")
     private WebElement namePipeTxt;
 
+    /**
+     * Wait until Page object was find for.
+     */
     @Override
     protected void waitUntilPageObjectIsLoaded() {
         wait.until(ExpectedConditions.visibilityOf(homepageMenu));

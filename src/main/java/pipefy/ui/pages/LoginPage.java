@@ -76,6 +76,9 @@ public class LoginPage extends BasePage {
         clickSubmit();
     }
 
+    /**
+     * Wait until Page object was find for.
+     */
     @Override
     protected void waitUntilPageObjectIsLoaded() {
         wait.until(ExpectedConditions.visibilityOf(formLogin));
