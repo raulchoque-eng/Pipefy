@@ -14,19 +14,33 @@ package core.selenium.webdrivers;
 
 import org.openqa.selenium.WebDriver;
 
+import java.io.File;
+
 /**
- * Browser interface, abstract behavior.
- * It promise will made in the future in its sub classes.
+ * Browser abstract class, abstract behavior.
+ * It promise will made in the future in its sub classes,
+ * and reuse code.
  *
  * @author Raul Choque
  * @version 0.0.1
  */
-public interface Browser {
+public abstract class Browser {
 
     /**
      * Gets a WebDriver object for use a browser.
      *
      * @return as WebDriver.
      */
-    WebDriver getDriver();
+    public abstract WebDriver getDriver();
+
+    /**
+     * Validates if exist a WebDriver with these value.
+     *
+     * @param pathDriver use to find the Webdriver.
+     * @return a true o false value.
+     */
+    protected boolean existWebDriver(final String pathDriver) {
+        File file = new File(pathDriver);
+        return file.exists()? true:false;
+    }
 }

@@ -44,6 +44,7 @@ public class FactoryBrowser {
         HashMap<String, StrategyToCreate> mapWithBrowser = new HashMap<>();
         mapWithBrowser.put("chrome", () -> new Chrome());
         mapWithBrowser.put("firefox", () -> new Firefox());
+        mapWithBrowser.put("opera", () -> new Opera());
         return mapWithBrowser;
     }
 }

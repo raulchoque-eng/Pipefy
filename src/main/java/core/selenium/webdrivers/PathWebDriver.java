@@ -22,7 +22,8 @@ package core.selenium.webdrivers;
 public enum PathWebDriver {
 
     PATH_GECKO_DRIVER("src/main/java/core/selenium/webdrivers/driver/geckodriver"),
-    PATH_CHROME_DRIVER("src/main/java/core/selenium/webdrivers/driver/chromedriver");
+    PATH_CHROME_DRIVER("src/main/java/core/selenium/webdrivers/driver/chromedriver"),
+    PATH_OPERA_DRIVER("src/main/java/core/selenium/webdrivers/driver/operadriver");
 
     private final String pathDriver;
 
