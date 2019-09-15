@@ -4,7 +4,7 @@
  * All rights reserved.
  *
  * This software is the confidential and proprietary information of
- * Jala Foundation, ("Confidential Information"). You shall not
+ * Jala Foundation, ("Confidential Information").  You shall not
  * disclose such Confidential Information and shall use it only in
  * accordance with the terms of the license agreement you entered into
  * with Jala Foundation.
@@ -14,31 +14,31 @@ package core.selenium.webdrivers;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.opera.OperaDriver;
 
-import static io.github.bonigarcia.wdm.DriverManagerType.CHROME;
+import static io.github.bonigarcia.wdm.DriverManagerType.OPERA;
 
 /**
- * Chrome class, creates instances of Chrome class.
- * for use the Chrome navigator.
+ * Opera class, create instances of Opera class
+ * for use the browser Opera.
  *
  * @author Raul Choque
  * @version 0.0.1
  */
-public final class Chrome extends Browser {
+public final class Opera extends Browser {
 
     /**
-     * Gets a WebDriver object for use Chrome browser.
+     * Gets a WebDriver object for use Opera browser.
      *
      * @return a  WebDriver object.
      */
     @Override
     public WebDriver getDriver() {
-        if (existWebDriver(PathWebDriver.PATH_CHROME_DRIVER.getPathDriver())) {
-            System.setProperty("webdriver.chrome.driver", PathWebDriver.PATH_CHROME_DRIVER.getPathDriver());
+        if (existWebDriver(PathWebDriver.PATH_OPERA_DRIVER.getPathDriver())) {
+            System.setProperty("webdriver.opera.driver", PathWebDriver.PATH_OPERA_DRIVER.getPathDriver());
         } else {
-            WebDriverManager.getInstance(CHROME).setup();
+            WebDriverManager.getInstance(OPERA).setup();
         }
-        return new ChromeDriver();
+        return new OperaDriver();
     }
 }
