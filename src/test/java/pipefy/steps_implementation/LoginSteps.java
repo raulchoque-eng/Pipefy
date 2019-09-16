@@ -53,7 +53,6 @@ public class LoginSteps {
     public void goHomePage() {
         PageTransporter.navigateURL("home");
         homePage = new HomePage();
-
     }
 
     /**
@@ -86,5 +85,4 @@ public class LoginSteps {
         Assert.assertEquals(user.getCompanyName(), organization.getOrganizationTitle(),
                 "It isn't user's organization.");
     }
-
 }
