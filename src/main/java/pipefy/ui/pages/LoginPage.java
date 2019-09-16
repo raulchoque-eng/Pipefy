@@ -12,11 +12,11 @@
 
 package pipefy.ui.pages;
 
-import core.selenium.utils.ReadJsonFile;
 import core.selenium.utils.WebDriverMethod;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import pipefy.entities.User;
 
 /**
  * LoginPage class, create a PageObject of LoginPage page
@@ -35,9 +35,6 @@ public class LoginPage extends BasePage {
 
     @FindBy(css = "button[name=\"submit\"]")
     private WebElement logInBtn;
-
-    @FindBy(css = ".auth0-lock-view-content")
-    private WebElement formLogin;
 
     /**
      * Writes in usernameTxt WebElement the username parameter.
@@ -68,12 +65,14 @@ public class LoginPage extends BasePage {
     /**
      * LogIn with username and password parameter.
      *
-     * @param userType use to search the userTyper.
+     * @param user use to search the userType.
+     * @return OrganizationPage as object.
      */
-    public void logIn(final String userType) {
-        writeInUsername(ReadJsonFile.getInstance(userType).getUsername());
-        writeInPassword(ReadJsonFile.getInstance(userType).getPassword());
+    public OrganizationPage logIn(final User user) {
+        writeInUsername(user.getUsername());
+        writeInPassword(user.getPassword());
         clickSubmit();
+        return new OrganizationPage();
     }
 
     /**
@@ -81,6 +80,6 @@ public class LoginPage extends BasePage {
      */
     @Override
     protected void waitUntilPageObjectIsLoaded() {
-        wait.until(ExpectedConditions.visibilityOf(formLogin));
+        wait.until(ExpectedConditions.elementToBeClickable(logInBtn));
     }
 }

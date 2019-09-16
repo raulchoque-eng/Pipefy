@@ -41,6 +41,6 @@ public abstract class Browser {
      */
     protected boolean existWebDriver(final String pathDriver) {
         File file = new File(pathDriver);
-        return file.exists()? true:false;
+        return file.exists() ? true : false;
     }
 }

@@ -80,6 +80,15 @@ public final class ReadJsonFile {
     }
 
     /**
+     * Gets company name of file json.
+     *
+     * @return as string company name of a user.
+     */
+    public String getCompanyName() {
+        return user.get("companyname").getAsString();
+    }
+
+    /**
      * Searches a user type of JsonArray.
      *
      * @param userType use to search a userType.
