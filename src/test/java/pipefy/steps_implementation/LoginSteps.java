@@ -13,10 +13,15 @@
 package pipefy.steps_implementation;
 
 import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import org.testng.Assert;
+import pipefy.entities.Context;
+import pipefy.entities.User;
 import pipefy.ui.PageTransporter;
 import pipefy.ui.pages.HomePage;
 import pipefy.ui.pages.LoginPage;
+import pipefy.ui.pages.OrganizationPage;
 
 /**
  * LoginSteps class, is the step implementation
@@ -27,26 +32,54 @@ import pipefy.ui.pages.LoginPage;
  */
 public class LoginSteps {
 
-    private PageTransporter pageTransporter = PageTransporter.getInstance();
     private HomePage homePage;
     private LoginPage loginPage;
+    private User user;
+    private OrganizationPage organization;
 
-    /**
-     * Goes to the TypeForm Page.
-     */
-    @Given("^I go to the pipefy page$")
-    public void goTypeFormPage() {
-        homePage = pageTransporter.navigateHomePage();
+    public LoginSteps(Context context) {
+        this.user = context.getUser();
     }
 
     /**
-     * Log in as userType.
+     * Goes to the main page of Pipefy website.
+     */
+    @Given("^user is in Pipefy page$")
+    public void goHomePage() {
+        PageTransporter.navigateURL("home");
+        homePage = new HomePage();
+
+    }
+
+    /**
+     * Goes to page that you choose.
      *
-     * @param userType is use for log in.
+     * @param namePage is the name of page.
      */
-    @When("^I log in as \"([^\"]*)\" user$")
-    public void loginUser(final String userType) {
-        loginPage = pageTransporter.navigateLoginPage();
-        loginPage.logIn(userType);
+    @When("^the user goes to the \"([^\"]*)\" page$")
+    public void goToPage(String namePage) {
+        PageTransporter.navigateURL(namePage);
     }
+
+    /**
+     * Logs in as user type that you choose.
+     *
+     * @param userType to login in the page.
+     */
+    @When("^the user logs in as \"([^\"]*)\" user$")
+    public void loginUserType(String userType) {
+        loginPage = new LoginPage();
+        user.init(userType);
+        organization = loginPage.logIn(user);
+    }
+
+    /**
+     * Sees user's organization title.
+     */
+    @Then("^the user should see his organization page$")
+    public void seeUserOrganization() {
+        Assert.assertEquals(user.getCompanyName(), organization.getOrganizationTitle(),
+                "It isn't user's organization.");
+    }
+
 }

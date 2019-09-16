@@ -31,7 +31,7 @@ public final class PageTransporter {
      */
     public static void navigateURL(final String namePage) {
         try {
-            String url = ReadPropertyFile.getInstance().getProperty(namePage);
+            String url = ReadPropertyFile.getInstance().getProperty(namePage.toLowerCase() + "Page");
             WebDriver driver = WebDriverManager.getInstance().getDriver();
             driver.navigate().to(url);
         } catch (NullPointerException ex) {
