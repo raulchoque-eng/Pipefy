@@ -13,40 +13,30 @@
 package pipefy.entities;
 
 /**
- * Context class, creator to share all entities
- * of its project.
+ * Pipe class.
  *
  * @author Raul Choque
  * @version 0.0.1
  */
-public class Context {
+public class Pipe {
 
-    private User user;
-    private Pipe pipe;
+    private String name;
 
     /**
-     * Method constructor of Context class.
+     * Gets the name attribute of its class.
+     *
+     * @return as string the name attribute.
      */
-    public Context() {
-        user = new User();
-        pipe = new Pipe();
+    public String getName() {
+        return name;
     }
 
     /**
-     * Gets User attribute of its class.
+     * Sets the name attribute with a new name.
      *
-     * @return the User attribute.
+     * @param name update the name attribute.
      */
-    public User getUser() {
-        return user;
-    }
-
-    /**
-     * Gets Pipe attribute of its class.
-     *
-     * @return the Pipe attribute.
-     */
-    public Pipe getPipe() {
-        return pipe;
+    public void setName(final String name) {
+        this.name = name;
     }
 }

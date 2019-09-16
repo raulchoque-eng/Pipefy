@@ -19,12 +19,15 @@ public class OrganizationPage extends BasePage {
     @FindBy(css = "div.pp-header-nav-actions")
     private WebElement logUserBtn;
 
+    @FindBy(className = "pp-ico-plus")
+    private WebElement addNewPipeBtn;
+
     /**
      * Wait until Page object was find for.
      */
     @Override
     protected void waitUntilPageObjectIsLoaded() {
-        wait.until(ExpectedConditions.visibilityOf(logUserBtn));
+        wait.until(ExpectedConditions.elementToBeClickable(addNewPipeBtn));
     }
 
     /**
@@ -35,5 +38,15 @@ public class OrganizationPage extends BasePage {
     public String getOrganizationTitle() {
         String[] textTitle = organizationTitleTxt.getText().split(" ");
         return textTitle[0];
+    }
+
+    /**
+     * Click in the new pipe button.
+     *
+     * @return PipeTemplatePage as object.
+     */
+    public PipeTemplatePage clickNewTemplate() {
+        addNewPipeBtn.click();
+        return new PipeTemplatePage();
     }
 }

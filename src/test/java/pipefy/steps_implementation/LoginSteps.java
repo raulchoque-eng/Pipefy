@@ -82,7 +82,7 @@ public class LoginSteps {
      */
     @Then("^the user should see his organization page$")
     public void seeUserOrganization() {
-        Assert.assertEquals(user.getCompanyName(), organization.getOrganizationTitle(),
-                "It isn't user's organization.");
+        Assert.assertEquals(user.getOrganizationName(), organization.getOrganizationTitle(),
+                "It isn't user's organization!");
     }
 }

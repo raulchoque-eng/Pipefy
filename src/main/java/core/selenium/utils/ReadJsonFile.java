@@ -80,12 +80,12 @@ public final class ReadJsonFile {
     }
 
     /**
-     * Gets company name of file json.
+     * Gets organization name of file json.
      *
-     * @return as string company name of a user.
+     * @return as string organization name of a user.
      */
-    public String getCompanyName() {
-        return user.get("companyname").getAsString();
+    public String getOrganizationName() {
+        return user.get("organizationname").getAsString();
     }
 
     /**
