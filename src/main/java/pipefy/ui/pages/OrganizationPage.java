@@ -17,7 +17,7 @@ public class OrganizationPage extends BasePage {
     private WebElement organizationTitleTxt;
 
     @FindBy(css = "div.pp-header-nav-actions")
-    WebElement logUserBtn;
+    private WebElement logUserBtn;
 
     /**
      * Wait until Page object was find for.

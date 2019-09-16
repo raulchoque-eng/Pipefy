@@ -37,7 +37,12 @@ public class LoginSteps {
     private User user;
     private OrganizationPage organization;
 
-    public LoginSteps(Context context) {
+    /**
+     * Constructor method for share states between objects.
+     *
+     * @param context has all share entities.
+     */
+    public LoginSteps(final Context context) {
         this.user = context.getUser();
     }
 
@@ -57,7 +62,7 @@ public class LoginSteps {
      * @param namePage is the name of page.
      */
     @When("^the user goes to the \"([^\"]*)\" page$")
-    public void goToPage(String namePage) {
+    public void goToPage(final String namePage) {
         PageTransporter.navigateURL(namePage);
     }
 
@@ -67,7 +72,7 @@ public class LoginSteps {
      * @param userType to login in the page.
      */
     @When("^the user logs in as \"([^\"]*)\" user$")
-    public void loginUserType(String userType) {
+    public void loginUserType(final String userType) {
         loginPage = new LoginPage();
         user.init(userType);
         organization = loginPage.logIn(user);

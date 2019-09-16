@@ -65,7 +65,8 @@ public class LoginPage extends BasePage {
     /**
      * LogIn with username and password parameter.
      *
-     * @param user use to search the userTyper.
+     * @param user use to search the userType.
+     * @return OrganizationPage as object.
      */
     public OrganizationPage logIn(final User user) {
         writeInUsername(user.getUsername());

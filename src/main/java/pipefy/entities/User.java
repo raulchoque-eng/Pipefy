@@ -40,7 +40,7 @@ public class User {
     /**
      * Method constructor empty of User class.
      */
-    public User() {}
+    public User() { }
 
     /**
      * Gets the user name attribute of its class.
