@@ -24,7 +24,7 @@ import core.selenium.utils.ReadJsonFile;
 public class User {
     private String username;
     private String  password;
-    private String companyName;
+    private String organizationName;
 
     /**
      * Method constructor of User class.
@@ -32,9 +32,9 @@ public class User {
      * @param userType to create a user instance.
      */
     public void init(final String userType) {
-        username = ReadJsonFile.getInstance(userType).getUsername();
-        password = ReadJsonFile.getInstance(userType).getPassword();
-        companyName = ReadJsonFile.getInstance(userType).getCompanyName();
+        username = ReadJsonFile.getInstance(userType.toLowerCase()).getUsername();
+        password = ReadJsonFile.getInstance(userType.toLowerCase()).getPassword();
+        organizationName = ReadJsonFile.getInstance(userType.toLowerCase()).getOrganizationName();
     }
 
     /**
@@ -52,12 +52,12 @@ public class User {
     }
 
     /**
-     * Gets the company name attribute of its class.
+     * Gets the organization name attribute of its class.
      *
-     * @return as String the company name attribute.
+     * @return as String the organization name attribute.
      */
-    public String getCompanyName() {
-        return companyName;
+    public String getOrganizationName() {
+        return organizationName;
     }
 
     /**

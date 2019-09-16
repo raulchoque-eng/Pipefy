@@ -15,6 +15,7 @@ package pipefy.ui;
 import core.selenium.WebDriverManager;
 import core.selenium.utils.ReadPropertyFile;
 import org.openqa.selenium.WebDriver;
+import pipefy.ui.pages.LoginPage;
 
 /**
  * PageTransporter class.
@@ -38,5 +39,15 @@ public final class PageTransporter {
             ex.printStackTrace();
             throw new NullPointerException("This url is not valid :" + ex.getMessage());
         }
+    }
+
+    /**
+     * Goes to Login page.
+     *
+     * @return a LoginPage object.
+     */
+    public  static LoginPage goToLoginPage() {
+        navigateURL("Login");
+        return new LoginPage();
     }
 }
