@@ -53,7 +53,7 @@ public final class ReadJsonFile {
      * @param userType uses to search the userType.
      * @return a ReadJsonFile object.
      */
-    public static ReadJsonFile getInstance(String userType) {
+    public static ReadJsonFile getInstance(final String userType) {
         if (readJsonFile == null) {
             readJsonFile = new ReadJsonFile();
         }

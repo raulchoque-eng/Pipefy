@@ -12,42 +12,45 @@
 
 package pipefy.ui.pages;
 
-import org.openqa.selenium.JavascriptExecutor;
+import core.selenium.utils.WebDriverMethod;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 /**
- * PipeSettingPage class.
+ * WarningPage class.
  *
  * @author Raul Choque
  * @version 0.0.1
  */
-public class PipeSettingPage extends BasePage {
-    @FindBy(css = "input[name='name']")
-    private WebElement namePipeTxt;
+public class WarningPage extends BasePage {
 
-    @FindBy(css = ".pp-btn-danger.pp-btn")
+    @FindBy(css = "div.pp-sweetalert.pp-active span.pp-emoji-warning")
+    private WebElement warningImg;
+
+    @FindBy(css = "form.js-swal-confirm b.pp-label-text span")
+    private WebElement wordDeleteTxt;
+
+    @FindBy(css = "form.js-swal-confirm input[type= 'text']")
+    private WebElement confirmTxtField;
+
+    @FindBy(css = ".js-swal-confirm .pp-btn-danger.pp-btn")
     private WebElement deleteBtn;
+
 
     /**
      * Wait until Page object was find for.
      */
     @Override
     protected void waitUntilPageObjectIsLoaded() {
-        wait.until(ExpectedConditions.elementToBeClickable(namePipeTxt));
-        JavascriptExecutor jse = (JavascriptExecutor) driver;
-        jse.executeScript("window.scrollBy(0,1800)");
+        wait.until(ExpectedConditions.visibilityOf(warningImg));
     }
 
     /**
-     * Delete a pipe from setting pipe.
-     *
-     * @return a WarningPage object.
+     * Deletes a pipe type a text of confirmation.
      */
-    public WarningPage deletePipe() {
-        JavascriptExecutor ex = (JavascriptExecutor) driver;
-        ex.executeScript("arguments[0].click();", deleteBtn);
-        return new WarningPage();
+    public void deletePipe() {
+        WebDriverMethod.setTxtElement(confirmTxtField, wordDeleteTxt.getText());
+        deleteBtn.click();
     }
 }
