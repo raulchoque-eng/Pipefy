@@ -25,6 +25,7 @@ import pipefy.ui.pages.LoginPage;
  */
 public final class PageTransporter {
 
+    private static final String BASE_URL = "https://app.pipefy.com";
     /**
      * Navigates using the URL location.
      *
@@ -35,6 +36,23 @@ public final class PageTransporter {
             String url = ReadPropertyFile.getInstance().getProperty(namePage.toLowerCase() + "Page");
             WebDriver driver = WebDriverManager.getInstance().getDriver();
             driver.navigate().to(url);
+        } catch (NullPointerException ex) {
+            ex.printStackTrace();
+            throw new NullPointerException("This url is not valid :" + ex.getMessage());
+        }
+    }
+
+
+    /**
+     * Navigate to URL use and and point.
+     *
+     * @param endPoint use to complete the uri.
+     */
+    public static void navigateToURL(final String endPoint) {
+        try {
+            String uri = BASE_URL + endPoint;
+            WebDriver driver = WebDriverManager.getInstance().getDriver();
+            driver.navigate().to(uri);
         } catch (NullPointerException ex) {
             ex.printStackTrace();
             throw new NullPointerException("This url is not valid :" + ex.getMessage());

@@ -13,33 +13,15 @@
 package pipefy.entities;
 
 /**
- * Pipe class.
+ * Organization class.
  *
  * @author Raul Choque
  * @version 0.0.1
  */
-public class Pipe {
+public class Organization {
 
     private String name;
     private String id;
-
-    /**
-     * Gets the id attribute of its class.
-     *
-     * @return as string the id attribute.
-     */
-    public String getId() {
-        return id;
-    }
-
-    /**
-     * Sets the new value of id attribute.
-     *
-     * @param id new value of id attribute.
-     */
-    public void setId(final String id) {
-        this.id = id;
-    }
 
     /**
      * Gets the name attribute of its class.
@@ -51,11 +33,29 @@ public class Pipe {
     }
 
     /**
-     * Sets the name attribute with a new name.
+     * Sets the name attribute with new value of parameter.
      *
-     * @param name update the name attribute.
+     * @param name use to set the name attribute.
      */
     public void setName(final String name) {
         this.name = name;
+    }
+
+    /**
+     * Gets the id attribute of its class.
+     *
+     * @return as string the id attribute.
+     */
+    public String getId() {
+        return id;
+    }
+
+    /**
+     * Sets the id attribute with new value of parameter.
+     *
+     * @param id use to set the id attribute.
+     */
+    public void setId(final String id) {
+        this.id = id;
     }
 }

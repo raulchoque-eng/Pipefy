@@ -72,7 +72,10 @@ public class LoginPage extends BasePage {
         writeInUsername(user.getUsername());
         writeInPassword(user.getPassword());
         clickSubmit();
-        return new OrganizationPage();
+        OrganizationPage organizationPage = new OrganizationPage();
+        String url = driver.getCurrentUrl();
+        user.setIdOrganization(url.substring(url.lastIndexOf('/') + 1));
+        return organizationPage;
     }
 
     /**

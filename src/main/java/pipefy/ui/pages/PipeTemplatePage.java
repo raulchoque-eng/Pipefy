@@ -40,14 +40,17 @@ public class PipeTemplatePage extends BasePage {
     /**
      * Selects a pipe template with the name of template.
      *
-     * @param namePipe value to select a pipe template.
+     * @param pipe value to select a pipe template.
      * @return PipePage as object.
      */
-    public PipePage selectPipeTemplate(final Pipe namePipe) {
+    public PipePage selectPipeTemplate(final Pipe pipe) {
         String locator = "//span[.= \"{template}\" and @class=\"pp-template-name\"]".
-                replace("{template}", namePipe.getName());
+                replace("{template}", pipe.getName());
         WebElement element = driver.findElement(By.xpath(locator));
         element.click();
-        return new PipePage();
+        PipePage pipePage =  new PipePage();
+        String url = driver.getCurrentUrl();
+        pipe.setId(url.substring(url.lastIndexOf('/') + 1));
+        return pipePage;
     }
 }

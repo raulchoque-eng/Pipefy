@@ -30,6 +30,9 @@ public class PipePage extends BasePage {
     @FindBy(id = "display-pipe-name")
     private WebElement namePipeTxt;
 
+    @FindBy(css = "li#pipe-header-navbar > div > a.pp-ico-cog")
+    private WebElement settingLnk;
+
     /**
      * Wait until Page object was find for.
      */
@@ -45,5 +48,15 @@ public class PipePage extends BasePage {
      */
     public String getNamePipe() {
         return namePipeTxt.getText();
+    }
+
+    /**
+     * Goes to the pipe setting.
+     *
+     * @return a PipeSettingPage object.
+     */
+    public PipeSettingPage goSetting() {
+        settingLnk.click();
+        return new PipeSettingPage();
     }
 }

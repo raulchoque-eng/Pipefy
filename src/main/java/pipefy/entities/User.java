@@ -25,6 +25,7 @@ public class User {
     private String username;
     private String  password;
     private String organizationName;
+    private String idOrganization;
 
     /**
      * Method constructor of User class.
@@ -67,5 +68,23 @@ public class User {
      */
     public String getPassword() {
         return password;
+    }
+
+    /**
+     * Gets the idOrganization attribute of its class.
+     *
+     * @return as string the idOrganization attribute.
+     */
+    public String getIdOrganization() {
+        return idOrganization;
+    }
+
+    /**
+     * Sets the idOrganization attribute with new value of parameter.
+     *
+     * @param idOrganization use to set the idOrganization attribute.
+     */
+    public void setIdOrganization(final String idOrganization) {
+        this.idOrganization = idOrganization;
     }
 }
