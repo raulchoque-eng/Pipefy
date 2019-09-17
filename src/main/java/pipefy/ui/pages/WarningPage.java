@@ -39,7 +39,7 @@ public class WarningPage extends BasePage {
 
 
     /**
-     *
+     * Wait until Page object was find for.
      */
     @Override
     protected void waitUntilPageObjectIsLoaded() {
