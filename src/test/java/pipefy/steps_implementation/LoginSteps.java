@@ -36,6 +36,7 @@ public class LoginSteps {
     private LoginPage loginPage;
     private User user;
     private OrganizationPage organization;
+    private Context context;
 
     /**
      * Constructor method for share states between objects.
@@ -43,6 +44,7 @@ public class LoginSteps {
      * @param context has all share entities.
      */
     public LoginSteps(final Context context) {
+        this.context = context;
         this.user = context.getUser();
     }
 

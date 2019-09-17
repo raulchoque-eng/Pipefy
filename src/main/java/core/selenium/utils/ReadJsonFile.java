@@ -53,11 +53,12 @@ public final class ReadJsonFile {
      * @param userType uses to search the userType.
      * @return a ReadJsonFile object.
      */
-    public static ReadJsonFile getInstance(final String userType) {
+    public static ReadJsonFile getInstance(String userType) {
         if (readJsonFile == null) {
             readJsonFile = new ReadJsonFile();
-            readJsonFile.searchUserType(userType);
+
         }
+        readJsonFile.searchUserType(userType);
         return readJsonFile;
     }
 
@@ -93,14 +94,14 @@ public final class ReadJsonFile {
      *
      * @param userType use to search a userType.
      */
-    private void searchUserType(final String userType) {
-
+    public void searchUserType(final String userType) {
         for (Object object: account) {
             JsonObject dataAccount = (JsonObject) object;
             if (dataAccount.has(userType)) {
-                user = dataAccount.get(userType).getAsJsonObject();
+                user =  dataAccount.get(userType).getAsJsonObject();
                 break;
             }
         }
+
     }
 }

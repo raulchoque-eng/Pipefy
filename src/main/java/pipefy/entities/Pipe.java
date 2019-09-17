@@ -21,6 +21,25 @@ package pipefy.entities;
 public class Pipe {
 
     private String name;
+    private String id;
+
+    /**
+     * Gets the id attribute of its class.
+     *
+     * @return as string the id attribute.
+     */
+    public String getId() {
+        return id;
+    }
+
+    /**
+     * Sets the new value of id attribute.
+     *
+     * @param id new value of id attribute.
+     */
+    public void setId(String id) {
+        this.id = id;
+    }
 
     /**
      * Gets the name attribute of its class.

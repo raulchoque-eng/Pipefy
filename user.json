@@ -2,14 +2,16 @@
   "users": [
     {
       "admin": {
-        "username": "put your username",
-        "password": "put your password"
+        "username": "automationtest",
+        "password": "Alberto6412018!",
+        "organizationname": "GUIAutomation"
       }
     },
     {
       "invited": {
-        "username": "put your email",
-        "password": "put your password"
+        "username": "invitedUser",
+        "password": "Abc123456789",
+        "organizationname": "datasuncompany"
       }
     }
   ]
