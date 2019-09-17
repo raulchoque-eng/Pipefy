@@ -49,4 +49,3 @@ hs_err_pid*
 
 # ignore this folder, except java files
 src/main/java/core/selenium/webdrivers/driver
-config/
