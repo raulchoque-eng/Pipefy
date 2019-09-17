@@ -61,5 +61,6 @@ public class Hook {
                 throw new NullPointerException("This file is defective!!");
             }
         }
+        driver.manage().deleteAllCookies();
     }
 }

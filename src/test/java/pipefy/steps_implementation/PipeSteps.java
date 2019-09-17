@@ -78,6 +78,6 @@ public class PipeSteps {
      */
     @Then("^I should see the information Pipe$")
     public void showInformationPipe() {
-        Assert.assertEquals(pipe.getName(), pipe.getName(), "It's name of pipe not exist!");
+        Assert.assertEquals(pipe.getName(), pipePage.getNamePipe(), "It's name of pipe not exist!");
     }
 }

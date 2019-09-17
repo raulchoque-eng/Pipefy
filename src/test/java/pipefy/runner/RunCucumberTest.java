@@ -16,7 +16,9 @@ import core.report.GeneratorReport;
 import core.selenium.WebDriverManager;
 import cucumber.api.CucumberOptions;
 import cucumber.api.testng.AbstractTestNGCucumberTests;
+import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterTest;
+
 
 /**
  * RunCucumberTest class, run all test of framework.
@@ -29,12 +31,14 @@ import org.testng.annotations.AfterTest;
         plugin = {"pretty", "html:target/cucumber", "json:target/cucumber.json"})
 public class RunCucumberTest extends AbstractTestNGCucumberTests {
 
+    private WebDriver driver = WebDriverManager.getInstance().getDriver();
+
     /**
-     * Run the last test in our framework.
+     * Runs after the last test of our framework.
      */
     @AfterTest
     public void runLastTest() {
-        WebDriverManager.getInstance().getDriver().close();
         GeneratorReport.getInstance().generateReport();
+        driver.quit();
     }
 }
